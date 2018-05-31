@@ -2,8 +2,8 @@
   {
     "Name": "Problem 1",
     "Points": 10,
-    "ProblemDirectoryPrefix": "problems/Problem 1/",
-    "OutputDirectory": "output/",
+    "ProblemDirectoryPrefix": "problems\\Problem 1\\",
+    "OutputDirectory": "output\\",
     "TemplateFile": "template.java",
     "TestFile": "test.dat"
   },
