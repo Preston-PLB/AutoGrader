@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "Problem 1",
+    "Points": 10,
+    "ProblemDirectoryPrefix": "problems/Problem 1/",
+    "OutputDirectory": "output/",
+    "TemplateFile": "template.java",
+    "TestFile": "test.dat"
+  },
+  {
+    "Name": "Problem 2",
+    "Points": 10,
+    "ProblemDirectoryPrefix": "problems/Problem 2/",
+    "OutputDirectory": "output",
+    "TemplateFile": "template.java",
+    "TestFile": "test.dat"
+  }
+
+]
