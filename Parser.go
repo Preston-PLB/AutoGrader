@@ -1,14 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
 	"encoding/json"
-	"strings"
-	"os"
 )
 
-type Entry struct{
+type Problem struct{
 	Name string
 	Points float64
 	ProblemDirectoryPrefix string
@@ -17,26 +14,16 @@ type Entry struct{
 	TestFile string
 }
 
-func main(){
-	var entries []Entry
+func Parse(configFilePath string) []Problem{
+	var out []Problem
 
-	file, err := ioutil.ReadFile("config.json")
-	check(err)
+	configFileData, fileReadError := ioutil.ReadFile(configFilePath)
+	check(fileReadError)
 
-	json.Unmarshal(file, &entries)
+	jsonParseError := json.Unmarshal(configFileData, &out)
+	check(jsonParseError)
 
-	fmt.Printf("%+v\n", entries)
-
-	template, err := ioutil.ReadFile(entries[0].ProblemDirectoryPrefix+entries[0].TemplateFile)
-	check(err)
-
-	templateString := string(template)
-	templateString = strings.Replace(templateString, "%data%", "Hello World", 1)
-
-	fmt.Println(templateString)
-
-	outErr := ioutil.WriteFile(entries[0].ProblemDirectoryPrefix+entries[0].OutputDirectory+entries[0].TemplateFile, []byte(templateString), os.ModeDevice)
-	check(outErr)
+	return out
 }
 
 func check(err error){
